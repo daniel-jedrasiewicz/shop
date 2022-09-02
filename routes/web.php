@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +16,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/users/list', [UserController::class, 'index'])->name('users.index');
+    Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
+//
+//    Route::resource('/products', ProductController::class);
 });
 
 Auth::routes();
