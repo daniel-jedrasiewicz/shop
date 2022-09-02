@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,7 +23,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/users/list', [UserController::class, 'index'])->name('users.index');
     Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
 //
-//    Route::resource('/products', ProductController::class);
+    Route::resource('/products', ProductController::class);
 });
 
 Auth::routes();

@@ -55,11 +55,11 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ url('users/list') }}">
+                                    <a class="dropdown-item" href="{{ route('users.index') }}">
                                         {{ __('Użytkownicy') }}
                                     </a>
 
-                                    <a class="dropdown-item" href="{{ url('products/index') }}">
+                                    <a class="dropdown-item" href="{{ route('products.index') }}">
                                         {{ __('Produkty') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
