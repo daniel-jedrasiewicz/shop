@@ -29,25 +29,40 @@ class ProductController extends Controller
         return redirect(route('products.index'));
     }
 
-    public function show(Product $product)
+    public function show(Product $product): View
     {
-        //
+        return view('products.show', [
+            'product' => $product
+        ]);
     }
 
     public function edit(Product $product): View
     {
+
         return view('products.edit', [
-            'products' => $product
+            'product' => $product
         ]);
     }
 
-    public function update(Request $request, Product $product)
+    public function update(Request $request, Product $product): RedirectResponse
     {
-        //
+        $product->fill($request->all());
+        $product->save();
+        return redirect(route('products.index'));
     }
 
     public function destroy(Product $product)
     {
-        //
+        try {
+            $product->delete();
+            return response()->json([
+                'status' => 'success'
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Wystąpił błąd'
+            ])->setStatusCode(500);
+        }
     }
 }

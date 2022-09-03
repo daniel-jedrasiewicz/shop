@@ -38,8 +38,9 @@
                         <td>{{ $product->amount }}</td>
                         <td>{{ $product->price }}</td>
                         <td>
-                            <a href="{{ route('products.edit', $product->id) }}" class="btn btn-primary">Edycja</a>
-{{--                            <button class="btn btn-danger delete" data-id="{{ $product->id }}">Usuń</button>--}}
+                            <a href="{{ route('products.edit', $product->id) }}" class="btn btn-primary">Edytuj</a>
+                            <a href="{{ route('products.show', $product->id) }}" class="btn btn-success">Podgląd</a>
+                            <button class="btn btn-danger delete" data-id="{{ $product->id }}">Usuń</button>
                         </td>
                     </tr>
                 @empty
