@@ -8,7 +8,7 @@
                     <div class="card-header">Dodawanie produktu</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('products.update', $product->id) }}">
+                        <form method="POST" action="{{ route('products.update', $product->id) }} " enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="row mb-3">
@@ -72,6 +72,20 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                     @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="image" class="col-md-4 col-form-label text-md-end">Grafika</label>
+
+                                <div class="col-md-6">
+                                    <input id="image" type="file" step="0.01" min="0" class="form-control" name="image">
+                                </div>
+                            </div>
+
+                            <div class="row mb-0 ">
+                                <div class="col-md-6 offset-md-4 justify-content-center">
+                                    <img src="{{ asset('storage/' . $product->image_path) }}" class="img-fluid" alt="Responsive image">
                                 </div>
                             </div>
 
