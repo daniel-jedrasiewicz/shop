@@ -8,7 +8,9 @@
                     <div class="card-header">Dodawanie produktu</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('products.update', $product->id) }} " enctype="multipart/form-data">
+                        <form class="needs-validation" method="POST"
+                              action="{{ route('products.update', $product->id) }} " enctype="multipart/form-data"
+                              novalidate>
                             @csrf
                             @method('PUT')
                             <div class="row mb-3">
@@ -33,7 +35,8 @@
                                 <div class="col-md-6">
                                     <textarea id="description" maxlength="1500"
                                               class="form-control @error('description') is-invalid @enderror"
-                                              name="description" autofocus>{{ $product->description}}</textarea>
+                                              name="description" autofocus
+                                              required>{{ $product->description}}</textarea>
 
                                     @error('description')
                                     <span class="invalid-feedback" role="alert">
@@ -77,18 +80,25 @@
 
                             <div class="row mb-3">
                                 <label for="image" class="col-md-4 col-form-label text-md-end">Grafika</label>
-
                                 <div class="col-md-6">
-                                    <input id="image" type="file" step="0.01" min="0" class="form-control" name="image">
+                                    <input id="image" type="file" step="0.01" min="0"
+                                           class="form-control @error('image') is-invalid @enderror" name="image">
+
+                                    @error('image')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                             </div>
-
-                            <div class="row mb-0 ">
-                                <div class="col-md-6 offset-md-4 justify-content-center">
-                                    <img src="{{ asset('storage/' . $product->image_path) }}" class="img-fluid" alt="Responsive image">
+                            @unless(is_null($product->image_path))
+                                <div class="row mb-0 ">
+                                    <div class="col-md-6 offset-md-4 justify-content-center">
+                                        <img src="{{ asset('storage/' . $product->image_path) }}" class="img-fluid"
+                                             alt="Responsive image">
+                                    </div>
                                 </div>
-                            </div>
-
+                            @endunless
                             <div class="row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
