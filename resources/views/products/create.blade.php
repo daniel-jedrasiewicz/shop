@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Dodawanie produktu</div>
+                    <div class="card-header">{{ __('shop.product.add_title') }}</div>
 
                     <div class="card-body">
                         <form class="needs-validation" method="POST" action="{{ route('products.store') }} "
@@ -13,7 +13,8 @@
                             @csrf
 
                             <div class="row mb-3">
-                                <label for="name" class="col-md-4 col-form-label text-md-end">Nazwa</label>
+                                <label for="name"
+                                       class="col-md-4 col-form-label text-md-end">{{ __('shop.product.fields.name') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="name" maxlength="500" type="text"
@@ -29,7 +30,8 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="description" class="col-md-4 col-form-label text-md-end">Opis</label>
+                                <label for="description"
+                                       class="col-md-4 col-form-label text-md-end">{{ __('shop.product.fields.description') }}</label>
 
                                 <div class="col-md-6">
                                     <textarea id="description" maxlength="1500"
@@ -45,7 +47,8 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="amount" class="col-md-4 col-form-label text-md-end">Ilość</label>
+                                <label for="amount"
+                                       class="col-md-4 col-form-label text-md-end">{{ __('shop.product.fields.amount') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="amount" type="number"
@@ -61,7 +64,8 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="price" class="col-md-4 col-form-label text-md-end">Cena</label>
+                                <label for="price"
+                                       class="col-md-4 col-form-label text-md-end">{{ __('shop.product.fields.price') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="price" type="number" step="0.01" min="0"
@@ -75,23 +79,24 @@
                                 </div>
                             </div>
 
-                                <div class="row mb-3">
-                                    <label for="image" class="col-md-4 col-form-label text-md-end">Grafika</label>
-                                    <div class="col-md-6">
-                                        <input id="image" type="file" step="0.01" min="0"
-                                               class="form-control @error('image') is-invalid @enderror" name="image">
-                                        @error('image')
-                                        <span class="invalid-feedback" role="alert">
+                            <div class="row mb-3">
+                                <label for="image"
+                                       class="col-md-4 col-form-label text-md-end">{{ __('shop.product.fields.image') }}</label>
+                                <div class="col-md-6">
+                                    <input id="image" type="file" step="0.01" min="0"
+                                           class="form-control @error('image') is-invalid @enderror" name="image">
+                                    @error('image')
+                                    <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                        @enderror
-                                    </div>
+                                    @enderror
                                 </div>
+                            </div>
 
                             <div class="row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        Zapisz
+                                        {{ __('shop.button.save') }}
                                     </button>
                                 </div>
                             </div>
