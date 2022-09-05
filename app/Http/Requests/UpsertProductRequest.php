@@ -31,4 +31,18 @@ class UpsertProductRequest extends FormRequest
             'image' => 'nullable|image|mimes:jpg,png'
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'Pole :attribute jest wymagane'
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'name' => 'nazwa produktu',
+            ];
+    }
 }
