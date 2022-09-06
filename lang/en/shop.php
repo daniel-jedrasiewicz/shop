@@ -24,7 +24,8 @@ return [
             'description' => 'Opis',
             'amount' => 'Ilość',
             'price' => 'Cena',
-            'image' => 'Grafika'
+            'image' => 'Grafika',
+            'category' => 'Category',
         ]
     ]
 ];

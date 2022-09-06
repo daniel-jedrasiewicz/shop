@@ -80,13 +80,11 @@
                             </div>
 
                             <div class="row mb-3">
-
-                                <label for="category" class="col-md-4 col-form-label text-md-end">Kategoria</label>
+                                <label for="category" class="col-md-4 col-form-label text-md-end">{{ __('shop.product.fields.category') }}</label>
 
                                 <div class="col-md-6">
-                                    <select class="form-select @error('price') is-invalid @enderror" name="category_id"
-                                    required>
-                                        <option selected>Brak</option>
+                                    <select class="form-select @error('price') is-invalid @enderror" name="category_id">
+                                        <option value="" selected>Brak</option>
                                         @foreach($categories as $category)
                                             <option value="{{ $category->id }}">{{ $category->name }}</option>
                                         @endforeach
@@ -99,6 +97,7 @@
                                 </div>
                             </div>
 
+                            <div class="row mb-3">
                                 <label for="image"
                                        class="col-md-4 col-form-label text-md-end">{{ __('shop.product.fields.image') }}</label>
                                 <div class="col-md-6">

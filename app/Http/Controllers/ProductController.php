@@ -47,7 +47,8 @@ class ProductController extends Controller
     {
 
         return view('products.edit', [
-            'product' => $product
+            'product' => $product,
+            'categories' => ProductCategory::all()
         ]);
     }
 
