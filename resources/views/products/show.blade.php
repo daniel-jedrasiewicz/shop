@@ -64,6 +64,16 @@
                                 </select>
                             </div>
                         </div>
+
+                        @unless(is_null($product->image_path))
+                            <div class="row mb-0 ">
+                                <div class="col-md-6 offset-md-4 justify-content-center">
+                                    <img src="{{ asset('storage/' . $product->image_path) }}" class="img-fluid"
+                                         alt="Responsive image">
+                                </div>
+                            </div>
+                        @endunless
+
                     </div>
                 </div>
             </div>
