@@ -32,4 +32,18 @@ class UpsertProductRequest extends FormRequest
             'category_id' => 'nullable|integer|min:0'
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'Pole :attribute jest wymagane'
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'name' => 'nazwa produktu',
+            ];
+    }
 }
