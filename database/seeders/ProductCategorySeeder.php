@@ -16,8 +16,12 @@ class ProductCategorySeeder extends Seeder
     public function run()
     {
         $data = [
-            ['name' => 'Akcesoria'],
-            ['name' => 'Dodatki'],
+            ['name' => 'AGD DUŻE'],
+            ['name' => 'AGD MAŁE'],
+            ['name' => 'TV,AUDIO'],
+            ['name' => 'SMARTFONY I GADŻETY'],
+            ['name' => 'KOMPUTERY I TABLETY'],
+            ['name' => 'KONSOLE I GRY'],
         ];
         ProductCategory::insert($data);
     }
