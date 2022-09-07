@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\ProductCategory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Illuminate\View\View;
 
 class ProductController extends Controller
@@ -33,7 +34,7 @@ class ProductController extends Controller
             $product->image_path = $request->file('image')->store('products');
         }
         $product->save();
-        return redirect(route('products.index'));
+        return redirect(route('products.index'))->with('status', __('shop.product.status.store.success'));
     }
 
     public function show(Product $product): View
@@ -59,13 +60,14 @@ class ProductController extends Controller
         $product->image_path = $request->file('image')->store('products');
     }
         $product->save();
-        return redirect(route('products.index'));
+        return redirect(route('products.index'))->with('status', __('shop.product.status.update.success'));
     }
 
     public function destroy(Product $product)
     {
         try {
             $product->delete();
+            Session::flash('status', __('shop.product.status.delete.success'));
             return response()->json([
                 'status' => 'success'
             ]);
