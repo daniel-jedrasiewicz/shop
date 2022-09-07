@@ -6,13 +6,14 @@
 @section('content')
 
     <div class="container">
+        @include('helpers.flash-messages')
         <div class="row">
             <div class="col-6">
-                <h1>{{ __('shop.product.index_title') }}</h1>
+                <h1><i class="fas fa-clipboard-list"></i> {{ __('shop.product.index_title') }}</h1>
             </div>
             <div class="col-6">
                 <a class="float-end" href="{{ route('products.create')}}">
-                    <button type="button" class=" btn btn-primary">{{ __('shop.button.add') }}</button>
+                    <button type="button" class=" btn btn-primary"><i class="far fa-plus"></i></button>
                 </a>
             </div>
         </div>
@@ -40,12 +41,12 @@
                         <td>{{ $product->price }}</td>
                         <td>@if($product->hasCategory()){{ $product->category->name }} @endif</td>
                         <td>
-                            <a href="{{ route('products.edit', $product->id) }}"
-                               class="btn btn-primary">{{__('shop.button.edit')}}</a>
                             <a href="{{ route('products.show', $product->id) }}"
-                               class="btn btn-success">{{__('shop.button.show')}}</a>
-                            <button class="btn btn-danger delete"
-                                    data-id="{{ $product->id }}">{{__('shop.button.delete')}}</button>
+                               class="btn btn-primary btn-sm"><i class="fas fa-search"></i></a>
+                            <a href="{{ route('products.edit', $product->id) }}"
+                               class="btn btn-success btn-sm"><i class="far fa-edit"></i></a>
+                            <button class="btn btn-danger btn-sm delete"
+                                    data-id="{{ $product->id }}"><i class="far fa-trash-alt"></i></button>
                         </td>
                     </tr>
                 @empty

@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
 
     public function index(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
-        return view('users.index', ['users' => User::paginate(1)]);
+        return view('users.index', ['users' => User::paginate(10)]);
     }
 
     /**
@@ -72,6 +73,7 @@ class UserController extends Controller
     {
         try {
             $user->delete();
+            Session::flash('status', __('shop.user.status.delete.success'));
             return response()->json([
                 'status' => 'success'
             ]);

@@ -25,13 +25,45 @@ return [
         'edit.title' => "Edit product: :name",
         'show.title' => "Show product",
         'index.title' => "Edycja produktu :name",
+        'status' => [
+            'store' => [
+                'success' => 'Product has been saved'
+            ],
+            'update' => [
+                'success' => 'Product has been updated'
+            ],
+            'delete' => [
+                'success' => 'Product has been deleted'
+            ],
+        ],
         'fields' => [
-            'name' => "Nazwa",
-            'description' => 'Opis',
-            'amount' => 'Ilość',
-            'price' => 'Cena',
-            'image' => 'Grafika',
+            'name' => "Name",
+            'description' => 'Description',
+            'amount' => 'Amount',
+            'price' => 'Price',
+            'image' => 'Image',
             'category' => 'Category',
         ]
-    ]
+    ],
+    'user' => [
+    'index_title' => "Users list",
+    'columns' => [
+        'name' => "Name",
+        'surname' => 'Surname',
+        'phone_number' => 'Phone',
+        'email' => 'Email',
+        'actions' => 'Actions'
+    ],
+    'status' => [
+        'store' => [
+            'success' => 'User has been saved'
+        ],
+        'update' => [
+            'success' => 'User has been updated'
+        ],
+        'delete' => [
+            'success' => 'User has been deleted'
+        ],
+    ],
+]
 ];
