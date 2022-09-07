@@ -20,23 +20,16 @@
                                     <a class="dropdown-item" href="#">Best Selling</a>
                                 </div>
                             </div>
-                            <div class="btn-group float-md-right ml-3">
-                                <button type="button" class="btn btn-lg btn-light"><span
-                                        class="fa fa-arrow-left"></span></button>
-                                <button type="button" class="btn btn-lg btn-light"><span
-                                        class="fa fa-arrow-right"></span></button>
-                            </div>
                             <div class="dropdown float-right">
-                                <label class="mr-2">View:</label>
-                                <a class="btn btn-lg btn-light dropdown-toggle" data-toggle="dropdown" role="button"
-                                   aria-haspopup="true" aria-expanded="false">9 <span class="caret"></span></a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"
+                                <a class="btn btn-lg btn-light dropdown-toggle products-actual-count" data-toggle="dropdown" role="button"
+                                   aria-haspopup="true" aria-expanded="false">5 <span class="caret"></span></a>
+                                <div class="dropdown-menu dropdown-menu-right products-count" aria-labelledby="navbarDropdown"
                                      x-placement="bottom-end"
                                      style="will-change: transform; position: absolute; transform: translate3d(120px, 48px, 0px); top: 0px; left: 0px;">
-                                    <a class="dropdown-item" href="#">12</a>
-                                    <a class="dropdown-item" href="#">24</a>
-                                    <a class="dropdown-item" href="#">48</a>
-                                    <a class="dropdown-item" href="#">96</a>
+                                    <a class="dropdown-item" href="#">5</a>
+                                    <a class="dropdown-item" href="#">10</a>
+                                    <a class="dropdown-item" href="#">15</a>
+                                    <a class="dropdown-item" href="#">20</a>
                                 </div>
                             </div>
                         </div>
@@ -74,21 +67,20 @@
                         <div class="col-12">
                             <a class="btn btn-light">
                                 <i class="fas fa-arrow-up mr-2"></i> Back to top</a>
-                            <div class="btn-group float-md-right ml-3">
-                                <button type="button" class="btn btn-lg btn-light"><span
-                                        class="fa fa-arrow-left"></span></button>
-                                <button type="button" class="btn btn-lg btn-light"><span
-                                        class="fa fa-arrow-right"></span></button>
-                            </div>
+{{--                            <div class="btn-group float-md-right ml-3">--}}
+{{--                                <button type="button" class="btn btn-lg btn-light"><span--}}
+{{--                                        class="fa fa-arrow-left"></span></button>--}}
+{{--                                <button type="button" class="btn btn-lg btn-light"><span--}}
+{{--                                        class="fa fa-arrow-right"></span></button>--}}
+{{--                            </div>--}}
                             <div class="dropdown float-md-right">
-                                <label class="mr-2">View:</label>
-                                <a class="btn btn-light btn-lg dropdown-toggle" data-toggle="dropdown" role="button"
-                                   aria-haspopup="true" aria-expanded="false">12 <span class="caret"></span></a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">12</a>
-                                    <a class="dropdown-item" href="#">24</a>
-                                    <a class="dropdown-item" href="#">48</a>
-                                    <a class="dropdown-item" href="#">96</a>
+                                <a class="btn btn-light btn-lg dropdown-toggle products-actual-count" data-toggle="dropdown" role="button"
+                                   aria-haspopup="true" aria-expanded="false">5 <span class="caret"></span></a>
+                                <div class="dropdown-menu products-count" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="#">5</a>
+                                    <a class="dropdown-item" href="#">10</a>
+                                    <a class="dropdown-item" href="#">15</a>
+                                    <a class="dropdown-item" href="#">20</a>
                                 </div>
                             </div>
                         </div>

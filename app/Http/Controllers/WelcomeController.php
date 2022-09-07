@@ -13,7 +13,10 @@ class WelcomeController extends Controller
     public function index(Request $request): View|\Symfony\Component\HttpFoundation\JsonResponse
     {
         $filters = $request->query('filter');
+        $paginate = $request->query('paginate') ?? 5;
+
         $query = Product::query();
+        $query->paginate($paginate);
 
         if(!is_null($filters)) {
             $query->when(array_key_exists('categories', $filters), function($query) use ($filters) {
@@ -32,7 +35,7 @@ class WelcomeController extends Controller
         }
 
         return view('welcome', [
-            'products' => $query->paginate(10),
+            'products' => $query->get(),
             'categories' => ProductCategory::orderBy('name', 'ASC')->get(),
         ]);
     }
