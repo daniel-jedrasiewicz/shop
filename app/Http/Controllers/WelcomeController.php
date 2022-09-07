@@ -13,7 +13,7 @@ class WelcomeController extends Controller
     public function index(Request $request): View|\Symfony\Component\HttpFoundation\JsonResponse
     {
         $filters = $request->query('filter');
-        $paginate = $request->query('paginate') ?? 5;
+        $paginate = $request->query('paginate') ?? 10;
 
         $query = Product::query();
         $query->paginate($paginate);
