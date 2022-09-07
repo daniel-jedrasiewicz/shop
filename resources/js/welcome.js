@@ -6,9 +6,9 @@ $(function () {
         getProducts($(this).text());
     });
 
-    $('#filter_button').click(function (event) {
+    $('a#filter_button').click(function (event) {
         event.preventDefault();
-        getProducts($('a.products-actual-count').text($(this).text()));
+        getProducts($('a.products-actual-count').text());
     });
 
 
