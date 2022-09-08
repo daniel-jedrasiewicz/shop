@@ -23,10 +23,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [WelcomeController::class, 'index']);
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
-    Route::resource('products', ProductController::class);
+    Route::group([
+        'prefix' => 'admin',
+        'middleware' => 'role:admin'
+    ], function () {
+        Route::resource('products', ProductController::class);
 
-    Route::get('/users/list', [UserController::class, 'index'])->name('users.index');
-    Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
+        Route::get('/users-list', [UserController::class, 'index'])->name('users.index');
+        Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
+    });
+
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
