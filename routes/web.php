@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WelcomeController;
@@ -34,6 +35,10 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     });
 
 });
+////////////////////////////
+
+Route::post('/add-to-cart/{product}', [CartController::class, 'store'])->name('cart.store');
+Route::get('/cart/list', [CartController::class, 'index'])->name('cart.index');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

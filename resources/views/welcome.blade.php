@@ -49,15 +49,14 @@
                                     </div>
                                     <div class="card-body text-center">
                                         <h4 class="card-title">
-                                            <a href="product.html"
-                                               class=" font-weight-bold text-dark text-uppercase small">
-                                                {{ $product->name }}</a>
+                                                {{ $product->name }}
                                         </h4>
                                         <h5 class="card-price small">
                                             <i>
                                                 PLN {{ $product->price }}</i>
                                         </h5>
                                     </div>
+                                    <button class="btn btn-success btn-sm add-cart-button" data-id="{{ $product->id }}"><i class="fa-solid fa-cart-shopping"></i> Dodaj do koszyka</button>
                                 </div>
                             </div>
                         @endforeach
@@ -127,7 +126,10 @@
     @vite('resources/js/welcome.js')
 
     <script>
-        const storagePath = '{{ asset('storage')}}/';
+        const WELCOME_DATA = {
+            storagePath: '{{ asset('storage') }}/',
+            addToCart: '{{ url('add-to-cart') }}/',
+        }
     </script>
 
 @endsection
