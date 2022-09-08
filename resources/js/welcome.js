@@ -11,6 +11,39 @@ $(function () {
         getProducts($('a.products-actual-count').first().text());
     });
 
+    $('button.add-cart-button').click(function (event) {
+
+        let $productId = $(this).data('id');
+        event.preventDefault();
+        $.ajax({
+            method: 'POST',
+            url: WELCOME_DATA.addToCart + $productId,
+            dataType: 'json',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        })
+            .done(function () {
+                Swal.fire({
+                    title: 'Brawo!',
+                    text: "Produkt dodany do koszyka",
+                    icon: 'success',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: '<i class="fa-solid fa-cart-shopping"></i> Przejdź do koszyka',
+                    cancelButtonText: '<i class="fa-solid fa-bag-shopping"></i> Kontynuuj zakupy'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        alert('OK');
+                    }
+                });
+            })
+            .fail(function (data) {
+                Swal.fire('Oops...', 'Wystąpił błąd', 'error');
+            });
+    });
+
 
     function getProducts(paginate) {
 
@@ -28,7 +61,7 @@ $(function () {
                     const html = '<div class="col-6 col-md-6 col-lg-4 mb-3">\n' +
                         '                                <div class="card h-100 border-0">\n' +
                         '                                    <div class="card-img-top">\n' +
-                        '                                            <img src=" ' + storagePath + product.image_path + '"' +
+                        '                                            <img src=" ' + WELCOME_DATA.storagePath + product.image_path + '"' +
                         '                                                class="img-fluid mx-auto d-block" alt="Zdjęcie produktu">\n' +
                         '                                    </div>\n' +
                         '                                    <div class="card-body text-center">\n' +
