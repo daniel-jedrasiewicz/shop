@@ -47,12 +47,18 @@ return [
     ],
     'user' => [
         'index_title' => "Lista użytkowników",
+        'edit_title' => "Edycja użytkownika: :name",
         'columns' => [
             'name' => "Imię",
             'surname' => 'Nazwisko',
+            'password' => 'Hasło',
             'phone_number' => 'Telefon',
             'email' => 'Email',
-            'actions' => 'Akcje'
+            'city' => 'Miasto',
+            'zip_code' => 'Kod pocztowy',
+            'street' => 'Ulica',
+            'street_number' => 'Numer ulicy',
+            'home_number' => 'Numer domu',
         ],
         'status' => [
             'store' => [
