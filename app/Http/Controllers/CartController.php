@@ -15,8 +15,10 @@ class CartController extends Controller
 
     public function index(): View
     {
-        dd(Session::get('cart', new Cart()));
-        return view('home');
+//        dd(Session::get('cart', new Cart()));
+        return view('cart.index', [
+            'cart' => Session::get('cart', new Cart())
+        ]);
     }
 
     public function store(Product $product): JsonResponse
@@ -27,6 +29,23 @@ class CartController extends Controller
         return response()->json([
             'status' => 'success'
         ]);
+    }
+
+    public function destroy(Product $product)
+    {
+        try {
+            $cart = Session::get('cart', new Cart());
+            Session::put('cart', $cart->removeItem($product));
+            Session::flash('status', __('shop.product.status.delete.success'));
+            return response()->json([
+                'status' => 'success'
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Wystąpił błąd'
+            ])->setStatusCode(500);
+        }
     }
 
 }
