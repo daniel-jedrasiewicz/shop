@@ -128,7 +128,8 @@
     <script>
         const WELCOME_DATA = {
             storagePath: '{{ asset('storage') }}/',
-            addToCart: '{{ url('add-to-cart') }}/',
+            addToCart: '{{ url('cart') }}/',
+            listCart: '{{ url('cart') }}',
         }
     </script>
 

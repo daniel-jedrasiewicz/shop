@@ -37,8 +37,9 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 });
 ////////////////////////////
 
-Route::post('/add-to-cart/{product}', [CartController::class, 'store'])->name('cart.store');
-Route::get('/cart/list', [CartController::class, 'index'])->name('cart.index');
+Route::post('/cart/{product}', [CartController::class, 'store'])->name('cart.store');
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::delete('/cart/{product}', [CartController::class, 'destroy'])->name('cart.destroy');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
