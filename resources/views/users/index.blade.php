@@ -42,7 +42,9 @@
                     <td>{{ $user->phone_number }}</td>
                     <td>{{ $user->email }}</td>
                     <td>
-                        <button class="btn btn-danger delete" data-id="{{ $user->id }}"><i class="far fa-trash-alt"></i></button>
+                        <button class="btn btn-danger delete btn-sm" data-id="{{ $user->id }}"><i class="far fa-trash-alt"></i></button>
+                        <a href="{{ route('users.edit', $user->id) }}"
+                           class="btn btn-success btn-sm"><i class="far fa-edit"></i></a>
                     </td>
                 </tr>
             @endforeach
