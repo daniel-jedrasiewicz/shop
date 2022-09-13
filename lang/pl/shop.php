@@ -71,5 +71,32 @@ return [
                 'success' => 'Użytkownik został usunięty'
             ],
         ],
-    ]
+    ],
+    'cart' => [
+        'header' => [
+            'shopping_cart' => 'Koszyk'
+        ],
+        'columns'=> [
+            'name' => 'Nazwa',
+            'quantity' => 'Ilość',
+            'price' => 'Cena',
+            'total' => 'Suma',
+            'order_total' => 'Podsumowanie',
+        ],
+        'button' => [
+            'continue_shopping' => 'Wróc do sklepu',
+            'add_to_cart' => 'Zapłać'
+        ]
+    ],
+    'order' => [
+        'header' => [
+            'orders' => 'Zamówienia'
+        ],
+        'columns'=> [
+            'quantity' => 'Ilość',
+            'price' => 'Cena',
+            'products' => 'Produkty',
+        ],
+    ],
+
 ];
