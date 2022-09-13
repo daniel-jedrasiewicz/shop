@@ -36,7 +36,7 @@
                                     <textarea id="description" maxlength="1500"
                                               class="form-control @error('description') is-invalid @enderror"
                                               name="description" autofocus
-                                              required>{{ $product->description}}</textarea>
+                                              required>{{ $product->description }}</textarea>
 
                                     @error('description')
                                     <span class="invalid-feedback" role="alert">
