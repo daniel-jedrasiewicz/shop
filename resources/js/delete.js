@@ -2,7 +2,6 @@ $(function () {
     $('.delete').click(function () {
         Swal.fire({
             title: confirmDelete,
-            // text: "You won't be able to revert this!",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -13,6 +12,9 @@ $(function () {
             if (result.isConfirmed) {
                 $.ajax({
                     url: deleteUrl + $(this).data("id"),
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
                     method: 'DELETE',
                     // data: { id: $(this).data("id")}
                 })

@@ -33,12 +33,9 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         Route::resource('users', UserController::class)->only([
             'index', 'edit', 'update', 'destroy'
         ]);
-//        Route::get('/users-list', [UserController::class, 'index'])->name('users.index');
-//        Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
     });
 
 });
-////////////////////////////
 
 Route::post('/cart/{product}', [CartController::class, 'store'])->name('cart.store');
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');

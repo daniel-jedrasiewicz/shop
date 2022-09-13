@@ -61,7 +61,7 @@
 @endsection
 @section('scripts')
     <script>
-        const deleteUrl = "{{ url('products') }}/";
+        const deleteUrl = "{{ url('admin/products') }}/";
         const confirmDelete = "{{ __('shop.messages.delete_confirm') }}";
     </script>
 @endsection

@@ -52,7 +52,10 @@ $(function () {
         $.ajax({
             method: 'GET',
             url: "/",
-            data: form + "&" + $.param({paginate: paginate})
+            data: form + "&" + $.param({paginate: paginate}),
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
         })
             .done(function (response) {
                 $('div#products-wrapper').empty();
@@ -79,30 +82,6 @@ $(function () {
                         '</i> Dodaj do koszyka</button>\n' +
                         '                                </div>\n' +
                         '                            </div>'
-
-                    // '<div class="col-6 col-md-6 col-lg-4 mb-3">\n' +
-                    // '                                <div class="card h-100 border-0">\n' +
-                    // '                                    <div class="card-img-top">\n' +
-                    // '                                            <img src=" ' + WELCOME_DATA.storagePath + product.image_path + '"' +
-                    // '                                                class="img-fluid mx-auto d-block" alt="Zdjęcie produktu">\n' +
-                    // '                                    </div>\n' +
-                    // '                                    <div class="card-body text-center">\n' +
-                    // '                                        <h4 class="card-title">\n' +
-                    // '                                            <a href="product.html"\n' +
-                    // '                                               class=" font-weight-bold text-dark text-uppercase small">\n' +
-                    // product.name +
-                    // '                                        </h4>\n' +
-                    // '                                        <h5 class="card-price small">\n' +
-                    // '                                            <i>\n' +
-                    // '                                                PLN ' + product.price + '</i>\n' +
-                    // '                                        </h5>\n' +
-                    // '                                    </div>\n' +
-                    // '<button class="btn btn-success btn-sm add-cart-button" data-id="{{ $product->id }}">' +
-                    // '<i class="fa-solid fa-cart-shopping"></i> Dodaj do koszyka' +
-                    // '</button>' +
-                    // '                                </div>' +
-                    // '                            </div>'
-
                     $('div#products-wrapper').append(html);
                 });
             });
